@@ -1,5 +1,8 @@
 import streamlit as st
 
+# 페이지 설정 - 이 부분이 가장 먼저 와야 해요!
+st.set_page_config(layout="wide", page_title="정보교과 안내", page_icon="💻") # 페이지 제목과 아이콘 추가
+
 # --- CSS 스타일 추가 (글꼴 및 기타 디자인) ---
 # Google Fonts에서 '고운돋움'체 불러오기
 st.markdown("""
@@ -32,7 +35,7 @@ h2, h3 {
 
 /* 버튼 스타일 (선택 사항) */
 .stButton>button {
-    background-color: #EE82EE; /* 연보라색 배경 */
+    background-color: #EE82EE; /* 연보색 배경 */
     color: white;
     border-radius: 5px;
 }
@@ -40,9 +43,6 @@ h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 # ------------------------------------
-
-# 페이지 설정
-st.set_page_config(layout="wide", page_title="정보교과 안내", page_icon="💻") # 페이지 제목과 아이콘 추가
 
 # --- 사이드바 추가 ---
 st.sidebar.header("📚 이 가이드에 대해")
@@ -285,7 +285,9 @@ checked_count = 0
 for i, question in enumerate(aptitude_questions):
     col_apt, col_q = st.columns([0.1, 0.9])
     with col_apt:
-        st.checkbox("", key=f"aptitude_{i}") # Use the positional argument for the empty label
+        # Create the checkbox, linking it to the session state key
+        # The positional argument "" is sufficient for an empty label
+        st.checkbox("", key=f"aptitude_{i}")
 
     with col_q:
         st.write(question) # Display the question text
