@@ -112,8 +112,8 @@ area_list = list(info_areas.items()) # 딕셔너리를 리스트로 변환하여
 for i, col in enumerate(cols):
     area, description = area_list[i]
     with col: # 각 컬럼 안에 내용 넣기
-        # subheader에서도 HTML을 사용하려면 unsafe_allow_html=True 필요
-        st.subheader(f"{area}", unsafe_allow_html=True)
+        # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
+        st.markdown(f"### {area}", unsafe_allow_html=True)
         st.write(description)
 # ----------------------------------
 
