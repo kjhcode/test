@@ -221,7 +221,7 @@ for i, col in enumerate(career_cols):
 # --- 인터랙티브 요소 섹션 추가 ---
 st.header("📚 정보교과와 친해지기! (간단 퀴즈 & 적성 테스트)")
 
-st.subheader("📚 정보교과 상식 퀴즈!") # 헤더 아이콘 유지
+st.subheader("💻 정보교과 상식 퀴즈!") # 헤더 아이콘 유지
 st.write("정보교과에 대해 얼마나 알고 있는지 간단한 퀴즈로 확인해 볼까요?")
 
 # 퀴즈 문제와 정답, 해설
@@ -256,7 +256,7 @@ for i, q in enumerate(quiz_questions):
         st.info(f"**해설:** {q['explanation']}")
     st.markdown("---")
 
-st.subheader("🤔 정보교과 적성 간단 테스트") # 헤더 아이콘 유지
+st.subheader("📚 정보교과 적성 간단 테스트") # 헤더 아이콘 유지
 st.write("아래 질문들을 읽고 나에게 해당하는 항목에 체크해 보세요! 정보교과가 너에게 잘 맞을지 살짝 엿볼 수 있을 거예요!")
 
 # 적성 테스트 질문
@@ -301,7 +301,7 @@ for i, question in enumerate(aptitude_questions):
 st.markdown("---")
 
 # 결과 보여주기
-st.subheader("✨ 테스트 결과 ✨") # 헤더 아이콘 유지
+st.subheader("📚 테스트 결과") # 헤더 아이콘 유지
 st.write(f"체크한 항목 수: **{checked_count}개**")
 
 if checked_count >= 6:
@@ -316,7 +316,7 @@ else:
 
 st.markdown("---")
 
-st.subheader("✍️ 홍보물에 대한 의견 남기기") # 헤더 아이콘 유지
+st.subheader("📚 홍보물에 대한 의견 남기기") # 헤더 아이콘 유지
 st.write("이 홍보물에 대해 궁금한 점이나 의견이 있다면 자유롭게 남겨주세요! (남겨주신 의견은 저장되지 않습니다.)")
 
 # --- 댓글 입력창 (저장 기능 없음) ---
@@ -333,7 +333,7 @@ if st.button("의견 제출"):
 st.markdown("---")
 
 
-st.header("🎉 너의 빛나는 미래를 응원해! ❤️") # 헤더 아이콘 유지
+st.header("📚 너의 빛나는 미래를 응원해! ❤️") # 헤더 아이콘 유지
 st.write("""
 정보교과는  <br> 너의 잠재력을 깨우고 미래를 설계하는 데 훌륭한 도구가 될 거야. <br>
 망설이지 말고 정보교과의 문을 두드려봐! <br>
