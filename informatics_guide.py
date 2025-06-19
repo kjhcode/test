@@ -32,7 +32,7 @@ h3 { /* st.subheader()에 해당하는 h3 태그 스타일 */
     margin-top: 2.0rem;
 }
 
-h4 { /* st.subheader1()에 해당하는 h2 태그 스타일 */
+h4 { /* st.subheader1()에 해당하는 h4 태그 스타일 */
     color: #800080; /* 자주색 계열 */
     margin-top: 1.5rem;
 }
@@ -147,7 +147,7 @@ for i, col in enumerate(cols):
        
 
 
-st.subheader("📚 정보(일반선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
+st.subheader1("📚 정보(일반선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
 st.markdown("""
 2022 개정 교육과정의 정보교과는 크게 5가지 영역으로 나뉘어 있습니다.. [[8]](https://namu.wiki/w/2022%20개정%20교육과정/정보과) <br>
 이 영역들을 통해 <span style="color: red;">  컴퓨팅 사고력을 기르고 실생활 문제를 해결하는 방법 </span>을 배우게 될 것입니다!<br>
