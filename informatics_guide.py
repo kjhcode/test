@@ -115,6 +115,10 @@ with col1:
 
 st.header("📚 고등학교 정보 과목은 이렇게 바뀝니다.") # 헤더 아이콘 유지
 st.image("images/test.png", caption="고교학점제 시행에 따른 과목 체계 재구조화", use_container_width=True)
+# 이미지 표시하면서 너비 지정
+st.image(image, width=200) # 너비를 200픽셀로 설정
+
+
 
 st.markdown("""
 <span style="font-size: 0.9em;">
