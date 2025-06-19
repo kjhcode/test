@@ -117,7 +117,7 @@ st.header("📚 2022 고등학교 정보 과목은 이렇게 바뀝니다.") # �
 
 # 2022 정보과 편제
 info_areas = {
-    " <span style='font-size: 0.7em;'>일반선택</span>": "정보", # 아이콘 크기 조절
+    "일반선택": "정보", # 아이콘 크기 조절
     " <span style='font-size: 0.7em;'>진로선택</span>": "인공지능 기초 / 데이터 과학.", # 아이콘 크기 조절
     " <span style='font-size: 0.7em;'>융합선택</span>": "소프트웨어와 생활.", # 아이콘 크기 조절
     " <span style='font-size: 0.7em;'>진로선택_특수목적고</span>": "정보과학.", # 아이콘 크기 조절
