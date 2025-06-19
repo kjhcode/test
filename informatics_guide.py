@@ -74,7 +74,7 @@ st.title("💻 미래를 코딩하다! 2022개정 교육과정의 고등학교 �
 st.markdown("""
 안녕, 친구들! 😊 <br>
 2학년 과목 선택 때문에 고민이 많을 텐데요, <br>
-혹시 '정보'/'프로그래밍'/인공지능 기초'/'빅데이터 분석' 과목에 대해 들어봤을까요? <br> <br> 
+혹시 <span style="color: red;">**정보**</span>/<span style="color: blue;">**프로그래밍**</span>/<span style="color: green;">**인공지능 기초**</span>/<span style="color: yellow;">**빅데이터 분석**</span> 과목에 대해 들어봤을까요? <br> <br> 
 정보교과는 <br>
 단순히 컴퓨터를 배우는 걸 넘어서, <br>
 우리가 살아갈 미래 사회에서 꼭 필요한 <span style="color: red;">**  생각하는 힘과 문제 해결 능력을 키워**</span>주는 아주 중요한 과목입니다!<br>
