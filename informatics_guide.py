@@ -117,7 +117,7 @@ st.header("📚 고등학교 정보 과목은 이렇게 바뀝니다.") # 헤더
 #st.image("images/test.png", caption="고교학점제 시행에 따른 과목 체계 재구조화", use_container_width=True)
 # 이미지 표시하면서 너비 지정
 #st.image(image, width=1000) # 너비를 1000픽셀로 설정
-st.title("이미지 표시 예제")
+st.title(" 고교 학점제 시행에 따른 정보과목")
 
 uploaded_file = st.file_uploader("이미지 파일을 선택해주세요", type=["jpg", "jpeg", "png"])
 
@@ -127,7 +127,7 @@ if uploaded_file is not None:
         image = Image.open(uploaded_file)
 
         # 이제 'image' 변수에 이미지 객체가 들어있으니까 st.image()에 넘겨줄 수 있어!
-        st.image(image, width=400) # 너비를 200픽셀로 설정
+        st.image(image, use_container_width=True) # 너비를 200픽셀로 설정
 
     except Exception as e:
         st.error(f"이미지를 처리하는 중 오류가 발생했어요: {e}")
