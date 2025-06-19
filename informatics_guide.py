@@ -119,9 +119,9 @@ st.header("📚 2022 고등학교 정보 과목은 이렇게 바뀝니다.") # �
 info_areas = {
    
     "일반선택": "정보", 
-    "진로선택": "인공지능 기초 / 데이터 과학.", # 아이콘 크기 조절
-    "융합선택": "소프트웨어와 생활.", # 아이콘 크기 조절
-    "진로선택_특수목적고": "정보과학.", # 아이콘 크기 조절
+    "진로선택": "인공지능 기초 / 데이터 과학.", 
+    "융합선택": "소프트웨어와 생활.",
+    "진로선택_특수목적고": "정보과학.", 
   
   }
 
@@ -134,7 +134,15 @@ for i, col in enumerate(cols):
     with col: # 각 컬럼 안에 내용 넣기
         # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
         st.markdown(f"### {area}", unsafe_allow_html=True)
-        st.write(description)
+        # ✨ 여기! 이제 모든 description에 대해 글자 크기를 키워서 보여주자! ✨
+        # HTML span 태그와 style 속성으로 font-size를 지정해줘!
+        # '1.2em'은 예시 크기야. 더 키우고 싶으면 숫자를 늘리면 돼!
+        st.markdown(f"<span style='font-size: 1.2em;'>{description}</span>", unsafe_allow_html=True)
+
+
+
+        
+        #st.write(description)
 
 
 
