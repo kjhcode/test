@@ -107,6 +107,7 @@ st.markdown("""
 </span>
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
 
+
 st.header("📚 정보교과에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
 st.markdown("""
 2022 개정 교육과정의 정보교과는 크게 5가지 영역으로 나뉘어 있습니다.. [[8]](https://namu.wiki/w/2022%20개정%20교육과정/정보과) <br>
