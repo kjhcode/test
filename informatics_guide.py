@@ -145,16 +145,16 @@ st.markdown("""
 st.header("📚 정보(일반선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
 st.markdown("""
 2022 개정 교육과정의 정보교과는 크게 5가지 영역으로 나뉘어 있습니다.. [[8]](https://namu.wiki/w/2022%20개정%20교육과정/정보과) <br>
-이 영역들을 통해 <span style="color: red;">** 컴퓨팅 사고력을 기르고 실생활 문제를 해결하는 방법**</span>을 배우게 될 것입니다!
+이 영역들을 통해 <span style="color: red;">  컴퓨팅 사고력을 기르고 실생활 문제를 해결하는 방법 </span>을 배우게 될 것입니다!
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
 
 # 정보교과 5가지 영역 - 아이콘 변경
 info_areas = {
-    " <span style='font-size: 0.6em;'>💻 컴퓨팅 시스템</span>": "컴퓨터가 어떻게 작동하는지, 하드웨어와 소프트웨어의 기본 원리를 이해함.", # 아이콘 크기 조절
-    " <span style='font-size: 0.6em;'>📈 데이터</span>": "다양한 데이터를 수집하고 분석해서 의미 있는 정보를 찾아내는 방법을 배움.", # 아이콘 크기 조절
-    " <span style='font-size: 0.6em;'>🧩 알고리즘과 프로그래밍 </span>": "문제를 해결하기 위한 절차(알고리즘)를 설계하고, 컴퓨터 언어(파이썬 등)로 프로그램을 만드는 연습을 함.", # 아이콘 크기 조절
-    " <span style='font-size: 0.6em;'>🤖 인공지능 </span>": "스스로 학습하고 판단하는 인공지능의 기본 개념과 활용 사례를 탐구함.", # 아이콘 크기 조절
-    " <span style='font-size: 0.6em;'>🌐 디지털 문화 </span>": "디지털 세상에서의 올바른 윤리 의식과 시민 역량을 기름." # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>💻 컴퓨팅 시스템</span>": "컴퓨터가 어떻게 작동하는지, 하드웨어와 소프트웨어의 기본 원리를 이해함.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7m;'>📈 데이터</span>": "다양한 데이터를 수집하고 분석해서 의미 있는 정보를 찾아내는 방법을 배움.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🧩 알고리즘과 프로그래밍 </span>": "문제를 해결하기 위한 절차(알고리즘)를 설계하고, 컴퓨터 언어(파이썬 등)로 프로그램을 만드는 연습을 함.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🤖 인공지능 </span>": "스스로 학습하고 판단하는 인공지능의 기본 개념과 활용 사례를 탐구함.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🌐 디지털 문화 </span>": "디지털 세상에서의 올바른 윤리 의식과 시민 역량을 기름." # 아이콘 크기 조절
 }
 
 # --- 컬럼을 활용하여 내용 배치 ---
@@ -173,24 +173,85 @@ st.header("📚 인공지능 기초(진로선택) 과목에서 무엇을 배울�
 st.markdown("""
 2022 개정 교육과정의 인공지능 기초 교과는 많은 내용 요소들이 중학교 정보와 고등학교 정보로 이동하였습니다. <br>
 인식과 관련된 부분이 삭제되었고, ‘인공지능 프로젝트’ 단원이 신설되었습니다.<br>
-이 영역들을 통해 <span style="color: red;">** 인공지능과 지속 가능 발전목표를 가지고 인공지능 문제 해결 절차**</span>를 배우게 될 것입니다!
+이 영역들을 통해 <span style="color: red;"> 인공지능과 지속 가능 발전목표를 가지고 인공지능 문제 해결 절차 </span>를 배우게 될 것입니다!
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
+
+# 인공지능기초교과 4가지 영역 - 아이콘 변경
+info_areas = {
+    " <span style='font-size: 0.7em;'>💻 인공지능의 이해</span>": "인공지능의 원리, 인공지능과 탐색, 지식의 표현과 추론.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7m;'>📈 인공지능과 학습</span>": "기계학습과 데이터, 기계학습 알고리즘, 인공신경망과 딥러닝.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🧩 인공지능의 사회적 영향 </span>": "인공지능의 발전과 사회 변화, 인공지능과 진로, 인공지능과 윤리.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🤖 인공지능 프로젝트  </span>": "인공지능과 지속가능발전목표, 인공지능 문제 해결 절차.", # 아이콘 크기 조절
+    
+}
+
+# --- 컬럼을 활용하여 내용 배치 ---
+cols = st.columns(len(info_areas)) # 영역 개수만큼 컬럼 생성
+area_list = list(info_areas.items()) # 딕셔너리를 리스트로 변환하여 순서대로 접근
+
+for i, col in enumerate(cols):
+    area, description = area_list[i]
+    with col: # 각 컬럼 안에 내용 넣기
+        # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
+        st.markdown(f"### {area}", unsafe_allow_html=True)
+        st.write(description)
 
 #----------------------------------------------------------------------------------------------------------------------------------------
 
 st.header("📚 데이터 과학(진로선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
 st.markdown("""
 2022 개정 교육과정의 데이터과학 교과는 기초적인 기계학습의 방법을 활용해 데이터를 분석하고 해석하는 데 초점을 맞추고 있습니다. <br>
-이 영역들을 통해 <span style="color: red;">** 통계와 기계학습을 활용해 다양한 프로젝트를 해결하는 방법**</span>을 배우게 될 것입니다!
+이 영역들을 통해 <span style="color: red;"> 통계와 기계학습을 활용해 다양한 프로젝트를 해결하는 방법 </span>을 배우게 될 것입니다! <br><br>
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
+
+# 데이터 과학 교과 4가지 영역 - 아이콘 변경
+info_areas = {
+    " <span style='font-size: 0.7em;'>💻 데이터 과학의 이해</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7m;'>📈 데이터 준비과 분석</span>": "", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🧩 데이터 모델링과 평가 </span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🤖 데이터 과학 프로젝트  </span>": ".", # 아이콘 크기 조절
+    
+}
+
+# --- 컬럼을 활용하여 내용 배치 ---
+cols = st.columns(len(info_areas)) # 영역 개수만큼 컬럼 생성
+area_list = list(info_areas.items()) # 딕셔너리를 리스트로 변환하여 순서대로 접근
+
+for i, col in enumerate(cols):
+    area, description = area_list[i]
+    with col: # 각 컬럼 안에 내용 넣기
+        # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
+        st.markdown(f"### {area}", unsafe_allow_html=True)
+        st.write(description)
 
 #----------------------------------------------------------------------------------------------------------------------------------------
 
 st.header("📚 소프트웨어와 생활(융합선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
 st.markdown("""
 2022개정 교육과정에서는 융합 선택 과목이 생겼으며 정보 교과에서는 소프트웨어와 생활 과목이 융합 선택에 해당합니다. <br>
-이 영역들을 통해 <span style="color: red;">** 다양한 학문 분야와 융합으로 소프트웨어를 활용해 문제를 해결하는 프로젝트로 가치 창출을 경험**</span>을 배우게 될 것입니다!
+이 영역들을 통해 <span style="color: red;"> 다양한 학문 분야와 융합으로 소프트웨어를 활용해 문제를 해결하는 프로젝트로 가치 창출을 경험 </span>을 배우게 될 것입니다!<br><br><br><br>
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
+
+# 소프트웨어와 생활 교과 5가지 영역 - 아이콘 변경
+info_areas = {
+    " <span style='font-size: 0.7em;'>💻 세상을 변화 시키는 소프트웨어</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7m;'>📈 작품을 창작하는 소프트웨어</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🧩 현상을 분석하는 소프트웨어</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🤖 모의 실험하는 소프트웨어</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🌐 가치를 창출하는 소프트웨어</span>": "." # 아이콘 크기 조절
+}
+
+# --- 컬럼을 활용하여 내용 배치 ---
+cols = st.columns(len(info_areas)) # 영역 개수만큼 컬럼 생성
+area_list = list(info_areas.items()) # 딕셔너리를 리스트로 변환하여 순서대로 접근
+
+for i, col in enumerate(cols):
+    area, description = area_list[i]
+    with col: # 각 컬럼 안에 내용 넣기
+        # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
+        st.markdown(f"### {area}", unsafe_allow_html=True)
+        st.write(description)
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -198,9 +259,28 @@ st.header("📚 정보과학(진로선택)과목에서 무엇을 배울까요? (
 st.markdown("""
 이전 교육과정에서는 과학계열 전문교과1에 포함되어 있던 정보과학이 2022개정 교육과정에서는 정보 교과의 진로 선택 과목으로 포함되었습니다. <br>
 2022개정 교육과정에서 정보과학의 내용 체계는 자료처리가 데이터 구조로 컴퓨팅 시스템 대신 정보과학 프로젝트가 포함되었습니다.<br>
-이 영역들을 통해 <span style="color: red;">** 실생활에서 발생하는 문제와 다양한 학문 분야의 문제를 융합적으로 해결하기 위한 정보과학과 방법론을 습득하여 해결할 수 있는 능력**</span>을 배우게 될 것입니다!
+이 영역들을 통해 <span style="color: red;"> 실생활에서 발생하는 문제와 다양한 학문 분야의 문제를 융합적으로 해결하기 위한 정보과학과 방법론을 습득하여 해결할 수 있는 능력 </span>을 배우게 될 것입니다!<br><br><br><br>
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
 
+# 정보과학 교과 4가지 영역 - 아이콘 변경
+info_areas = {
+    " <span style='font-size: 0.7em;'>💻 프로그래밍</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7m;'>📈 자료처리->데이터구조</span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🧩알고리즘 </span>": ".", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>🤖 컴퓨팅 시스템->정보과학 프로젝트</span>": ".", # 아이콘 크기 조절
+   
+}
+
+# --- 컬럼을 활용하여 내용 배치 ---
+cols = st.columns(len(info_areas)) # 영역 개수만큼 컬럼 생성
+area_list = list(info_areas.items()) # 딕셔너리를 리스트로 변환하여 순서대로 접근
+
+for i, col in enumerate(cols):
+    area, description = area_list[i]
+    with col: # 각 컬럼 안에 내용 넣기
+        # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
+        st.markdown(f"### {area}", unsafe_allow_html=True)
+        st.write(description)
 
 
 st.header("📚 우리 학교 정보교과 소개") # 헤더 아이콘 유지
