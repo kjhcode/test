@@ -346,15 +346,6 @@ career_data = {
     }
 }
 
-# ✨ 딕셔너리를 다 만든 다음에, 이 내용을 화면에 보여줄 때 st.markdown()을 사용하는 거야! ✨
-# 예를 들어, 각 분야의 제목(키)을 화면에 보여주고 싶다면 이렇게 반복문을 쓸 수 있어.
-for career_area, details in career_data.items():
-    st.markdown(career_area, unsafe_allow_html=True) # 키(HTML 포함 문자열)를 마크다운으로 보여주기
-    st.write(details["설명"]) # 설명 보여주기
-    st.write("관련 직업 (예시):", ", ".join(details["관련 직업 (예시)"])) # 직업 목록 보여주기
-    st.write("관련 학과 (예시):", ", ".join(details["관련 학과 (예시)"])) # 학과 목록 보여주기
-    st.write("---") # 구분선 넣기
-
 # --- 진로/학과 부분을 컬럼으로 나눠서 배치 ---
 career_cols = st.columns(len(career_data)) # 진로 분야 개수만큼 컬럼 생성
 career_list = list(career_data.items()) # 딕셔너리를 리스트로 변환
