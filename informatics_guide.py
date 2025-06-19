@@ -137,47 +137,8 @@ for i, col in enumerate(cols):
         # ✨ 여기! 이제 모든 description에 대해 글자 크기를 키워서 보여주자! ✨
         # HTML span 태그와 style 속성으로 font-size를 지정해줘!
         # '1.2em'은 예시 크기야. 더 키우고 싶으면 숫자를 늘리면 돼!
-        st.markdown(f"<span style='font-size: 1.2em;'>{description}</span>", unsafe_allow_html=True)
-
-
-
-        
+        st.markdown(f"<span style='font-size: 1.8em;'>{description}</span>", unsafe_allow_html=True)
         st.write(description)
-
-
-
-
-
-
-
-
-
-uploaded_file = st.file_uploader("이미지 파일을 선택해주세요", type=["jpg", "jpeg", "png"])
-
-if uploaded_file is not None:
-    try:
-        # ✨ 여기! 업로드된 파일을 열어서 'image' 변수에 할당하는 과정이 꼭 필요해! ✨
-        image = Image.open(uploaded_file)
-
-        # 이제 'image' 변수에 이미지 객체가 들어있으니까 st.image()에 넘겨줄 수 있어!
-        st.image(image, use_container_width=True) # 너비를 200픽셀로 설정
-
-    except Exception as e:
-        st.error(f"이미지를 처리하는 중 오류가 발생했어요: {e}")
-
-else:
-    st.info("이미지 파일을 업로드해주세요.")
-
-
-st.markdown("""
-<span style="font-size: 1.5em;">
--   정보 <br>
--   인공지능 기초 <br>
--   데이터 과학 <br>
--   소프트웨어와 생활 <br>     
-</span>의 과목을 선택할 수 있도록 되어져있습니다..  <br>  <br> 
-
-""", unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
 
 
 st.subheader("📚 정보(일반선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
