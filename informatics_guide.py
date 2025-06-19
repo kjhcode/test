@@ -138,7 +138,7 @@ for i, col in enumerate(cols):
         # HTML span 태그와 style 속성으로 font-size를 지정해줘!
         # '1.2em'은 예시 크기야. 더 키우고 싶으면 숫자를 늘리면 돼!
         st.markdown(f"<span style='font-size: 1.8em;'>{description}</span>", unsafe_allow_html=True)
-        st.write(description)
+       
 
 
 st.subheader("📚 정보(일반선택)과목에서 무엇을 배울까요? (2022 개정 교육과정 기준)") # 헤더 아이콘 유지
