@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image  #Pillow 라이브러리 활용하기: 이미지를 Streamlit에 보여주기 전에 파이썬 코드에서 직접 이미지 크기를 조절하는 방법. Pillow라는 이미지 처리 라이브러리를 사용.
 
 # 페이지 설정 - 이 부분이 가장 먼저 와야 해요!
 st.set_page_config(layout="wide", page_title="정보교과 안내", page_icon="💻") # 페이지 제목과 아이콘 추가
@@ -113,7 +114,13 @@ with col1:
 
 
 st.header("📚 고등학교 정보 과목은 이렇게 바뀝니다.") # 헤더 아이콘 유지
-st.image("images/test.png", caption="고교학점제 시행에 따른 과목 체계 재구조화", use_column_width=True)
+st.image("images/test.png", caption="고교학점제 시행에 따른 과목 체계 재구조화", use_container_width=True)
+# 이미지 크기 조절 (예시: 너비 300, 높이 200으로)
+resized_image = image.resize((300, 200))
+# 크기 조절된 이미지 표시
+st.image(resized_image)
+
+
 st.markdown("""
 <span style="font-size: 0.9em;">
 정보 <br>
