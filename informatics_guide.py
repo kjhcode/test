@@ -132,13 +132,13 @@ else:
 
 
 st.markdown("""
-<span style="font-size: 0.9em;">
+<span style="font-size: 1.5em;">
 정보 <br>
 인공지능 기초 <br>
 데이터 과학 <br>
 소프트웨어와 생활  <br> 
 정보과학 <br> 
-</span>의 과목을 선택할 수 있도록 변했습니다.
+</span>의 과목을 선택할 수 있도록 변했습니다.  <br>  <br> 
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
 
 
