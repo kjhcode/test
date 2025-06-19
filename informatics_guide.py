@@ -113,7 +113,7 @@ with col1:
 
 
 st.header("📚 고등학교 정보 과목은 이렇게 바뀝니다.") # 헤더 아이콘 유지
-st.image("교육과정.jpg", caption="고교학점제 시행에 따른 과목 체계 재구조화", use_column_width=True)
+st.image("images/교육과정.jpg", caption="고교학점제 시행에 따른 과목 체계 재구조화", use_column_width=True)
 st.markdown("""
 <span style="font-size: 0.9em;">
 정보 <br>
