@@ -114,6 +114,34 @@ with col1:
 
 
 st.header("📚 2022 고등학교 정보 과목은 이렇게 바뀝니다.") # 헤더 아이콘 유지
+
+# 2022 정보과 편제
+info_areas = {
+    " <span style='font-size: 0.7em;'>일반선택</span>": "정보", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>진로선택</span>": "인공지능 기초 / 데이터 과학.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>융합선택</span>": "소프트웨어와 생활.", # 아이콘 크기 조절
+    " <span style='font-size: 0.7em;'>진로선택_특수목적고</span>": "정보과학.", # 아이콘 크기 조절
+  }
+
+# --- 컬럼을 활용하여 내용 배치 ---
+cols = st.columns(len(info_areas)) # 영역 개수만큼 컬럼 생성
+area_list = list(info_areas.items()) # 딕셔너리를 리스트로 변환하여 순서대로 접근
+
+for i, col in enumerate(cols):
+    area, description = area_list[i]
+    with col: # 각 컬럼 안에 내용 넣기
+        # subheader 대신 markdown ### 사용 및 unsafe_allow_html=True 추가
+        st.markdown(f"### {area}", unsafe_allow_html=True)
+        st.write(description)
+
+
+
+
+
+
+
+
+
 uploaded_file = st.file_uploader("이미지 파일을 선택해주세요", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
