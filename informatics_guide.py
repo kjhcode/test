@@ -74,10 +74,12 @@ st.title("💻 미래를 코딩하다! 2022개정 교육과정의 고등학교 �
 st.markdown("""
 안녕, 친구들! 😊 <br>
 2학년 과목 선택 때문에 고민이 많을 텐데요, <br>
-혹시 <span style="color: red;">**정보**</span>/<span style="color: blue;">**프로그래밍**</span>/<span style="color: green;">**인공지능 기초**</span>/<span style="color: yellow;">**빅데이터 분석**</span> 과목에 대해 들어봤을까요? <br> <br> 
+여러분들이 수강을 희망한 과목을 살펴보니 <span style="color: red;">**정보**</span>/<span style="color: blue;">**프로그래밍**</span>/<span style="color: green;">**인공지능 기초**</span>/<span style="color: gold;">**빅데이터 분석**</span> 과목이더라구요!  <br> 
+이 결과를 확인하고 우리 학생들이 인공지능 시대에 맞는 교과목을 알고 있다는 생각을 했습니다. <br> <br>
+
 정보교과는 <br>
 단순히 컴퓨터를 배우는 걸 넘어서, <br>
-우리가 살아갈 미래 사회에서 꼭 필요한 <span style="color: red;">**  생각하는 힘과 문제 해결 능력을 키워**</span>주는 아주 중요한 과목입니다!<br>
+우리가 살아갈 미래 사회에서 꼭 필요한 <span style="color: red;">  생각하는 힘과 문제 해결 능력을 키워</span>주는 아주 중요한 과목입니다!<br>
 왜 정보교과를 선택해야 하는지, <br>
 같이 한번 알아볼까요?
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
@@ -89,8 +91,7 @@ st.markdown("""
 우리가 사는 세상은 빠르게 변하고 있습니다. <br>
 인공지능, 빅데이터, 자율주행... <br>
 이 모든 것들이 '정보' 기술과 관련이 깊지요! <br>
-정보교과를 배우면 이런 변화를 이해하고, 미래 사회의 주인공으로 성장하는 데 필요한
-핵심 역량을 기를 수 있습니다.  <br> [[8]](https://namu.wiki/w/2022%20개정%20교육과정/정보과)
+정보교과를 배우면 이런 변화를 이해하고, 미래 사회의 주인공으로 성장하는 데 필요한 핵심 역량을 기를 수 있습니다.  <br> [[8]](https://namu.wiki/w/2022%20개정%20교육과정/정보과)
 </span>
 """, unsafe_allow_html=True) # HTML 사용을 허용해야 해요!
 
@@ -114,7 +115,7 @@ with col1:
 st.header("📚 고등학교 정보 과목은 이렇게 바뀝니다.") # 헤더 아이콘 유지
 st.markdown("""
 <span style="font-size: 0.9em;">
-고등학교는 정보 <br>
+정보 <br>
 인공지능 기초 <br>
 데이터 과학 <br>
 소프트웨어와 생활  <br> 
