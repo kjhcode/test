@@ -23,13 +23,13 @@ h1 {
 /* 헤더 스타일 (선택 사항) */
 h2 { /* st.header()에 해당하는 h2 태그 스타일 */
     color: #800080; /* 자주색 계열 */
-    margin-top: 1.5rem;
-    font-size: 1.5rem; /* st.subheader() (h3)와 비슷하게 크기 조절 */
+    margin-top: 3.5rem;
+    font-size: 3.5rem; /* st.subheader() (h3)와 비슷하게 크기 조절 */
 }
 
 h3 { /* st.subheader()에 해당하는 h3 태그 스타일 */
     color: #800080; /* 자주색 계열 */
-    margin-top: 1.5rem;
+    margin-top: 2.0rem;
 }
 
 /* Expander 스타일 (선택 사항) */
