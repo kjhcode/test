@@ -142,7 +142,7 @@ for i, col in enumerate(cols):
 
 
         
-        #st.write(description)
+        st.write(description)
 
 
 
