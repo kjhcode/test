@@ -128,7 +128,7 @@ if uploaded_file is not None:
         st.error(f"이미지를 처리하는 중 오류가 발생했어요: {e}")
 
 else:
-    st.info("이미지 파일을 업로드해주세요.")'''
+    st.info("이미지 파일을 업로드해주세요.")
 
 
 st.markdown("""
