@@ -127,7 +127,7 @@ tabs = st.tabs(["정보 소개", "퀴즈", "적성 테스트", "FAQ"])
 
 with tabs[0]:
     st.title("💻 2022 개정 정보과 안내")
-    st.image("https://img.freepik.com/premium-photo/young-student-boy-programming-robot-in-ai-classroom_103577-1450.jpg", caption="AI실습 이미지", use_container_width=True)
+    st.image("https://images.unsplash.com/photo-1581092334654-3c1c9482466f", caption="AI실", use_container_width=True)
     for subject in subject_data:
         render_subject_section(subject["title"], subject["desc"], subject["areas"])
 
