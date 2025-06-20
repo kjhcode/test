@@ -1,7 +1,24 @@
 import streamlit as st
 
-# 퀴즈 함수 유지
+# --- 사이드바 추가 ---
+st.sidebar.header("📚 이 가이드에 대해")
+st.sidebar.write("""
+이 가이드는 2022 개정 교육과정 정보과 내용을 바탕으로
+고등학교 학생들이 과목 선택 시
+"정보교과"에 대한 이해를 돕기 위해 제작되었습니다.
+""")
+st.sidebar.markdown("---")
+st.sidebar.header("🔗 참고 자료")
+st.sidebar.markdown("""
+- [2022 개정 교육과정/정보과 - 나무위키](https://namu.wiki/w/2022%20개정%20교육과정/정보과)
+- [2022 개정 교육과정/정보과 - 네이버 블로그](https://m.blog.naver.com/math_rani/223294591331)
+- [울산광역시교육청](https://use.go.kr/component/file/ND_fileDownload.do?q_fileSn=786326&q_fileId=e36a31ba-8557-4ce8-b5ef-52217892487e)
+- [부산고교학점제지원센터](https://home.pen.go.kr/hscredit/cm/cntnts/cntntsView.do?cntntsId=3729&mi=17411)
+- [서울진로진학정보센터](https://www.jinhak.or.kr/subList/20000000271)
+- [대전고교학점제지원센터](https://djehcredit.com/hscredit/bbs/view.php?table=sschool&page=2&field=&str=&sid=157&mno=1)
+""")
 
+# 퀴즈 함수 유지
 def display_quiz(questions):
     st.subheader("💻 정보교과 상식 퀴즈!")
     for i, q in enumerate(questions):
