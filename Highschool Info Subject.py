@@ -48,13 +48,15 @@ def display_quiz(questions):
     st.subheader("💻 정보교과 상식 퀴즈!")
     for i, q in enumerate(questions):
         st.markdown(f"**문제 {i+1}.** {q['question']}")
-        user_answer = st.radio(f"문제 {i+1} 정답 선택:", q['options'], key=f"quiz_{i}")
-        if user_answer:
+        user_answer = st.radio(f"문제 {i+1} 정답 선택:", q['options'], key=f"quiz_{i}", index=None)
+
+        if user_answer is not None:
             if user_answer == q['answer']:
                 st.success("🎉 정답입니다! 잘 알고 있네요!")
             else:
                 st.error(f"😅 정답은 '{q['answer']}'입니다.")
             st.info(f"**해설:** {q['explanation']}")
+
         st.markdown("---")
 
 def display_aptitude_test(questions):
