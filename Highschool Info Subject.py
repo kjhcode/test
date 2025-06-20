@@ -79,7 +79,7 @@ def display_aptitude_test():
     elif count >= 1:
         st.error("😅 아직 정보교과에 대해 잘 모르거나 크게 흥미를 느끼지 못할 수도 있어요. 하지만 정보교과는 미래 사회에 꼭 필요한 과목이니, 이 가이드를 통해 조금 더 알아보는 건 어떨까요? 생각보다 재미있을 수도 있답니다!")
     else:
-        st.error("😅 선택해!")
+        st.error("😅")
 
 # 탭 구조 생성
 st.set_page_config(layout="wide")
