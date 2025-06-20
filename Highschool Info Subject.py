@@ -217,6 +217,8 @@ with tabs[3]:
     ]
     display_quiz(quiz_questions)
 
+    display_aptitude_test()
+
     st.subheader("💬 홍보물에 대한 의견 남기기")
     user_comment = st.text_area("💡 여기에 자유롭게 의견을 입력해 주세요:", height=100)
     if st.button("✉️ 의견 제출"):
@@ -224,7 +226,7 @@ with tabs[3]:
             st.success("의견이 제출되었습니다! 감사합니다!")
         else:
             st.warning("의견을 입력해주세요!")
-    display_aptitude_test()
+    
 
 # 다섯 번째 탭 - 응원 메시지
 with tabs[4]:
