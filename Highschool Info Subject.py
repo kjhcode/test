@@ -1,53 +1,11 @@
 import streamlit as st
-from PIL import Image
 
-# 페이지 설정
-st.set_page_config(layout="wide", page_title="정보과 안내", page_icon="💻")
-
-# --- CSS 스타일 추가 ---
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-html, body, [class*="st-"] { font-family: 'Gowun Dodum', sans-serif; }
-h1 { color: #4B088A; text-align: center; }
-h2, h3, h4 { color: #800080; margin-top: 2rem; }
-.stExpander { border: 1px solid #DDA0DD; border-radius: 5px; padding: 10px; }
-.stButton>button { background-color: #EE82EE; color: white; border-radius: 5px; }
-</style>
-""", unsafe_allow_html=True)
-
-# --- 사이드바 ---
-st.sidebar.header("📚 이 가이드에 대해")
-st.sidebar.write("""
-이 가이드는 2022 개정 교원과정 정보과 내용을 바탕으로 
-고등학교 학생들이 과목 선택 시 
-\"정보교과\"에 대한 이해를 돕기 위해 제작되었습니다.
-""")
-
-st.sidebar.markdown("---")
-st.sidebar.header("🔗 참고 자료")
-st.sidebar.markdown("""
-- [2022 개정 교원과정/정보과 - 나무위키](https://namu.wiki/w/2022%20개정%20교원과정/정보과)
-- [2022 개정 교원과정 정보 살해보기 - 네이버 블로그](https://m.blog.naver.com/math_rani/223294591331)
-- [과목선택 워크부 - 울산광역시교육청](https://use.go.kr/component/file/ND_fileDownload.do?q_fileSn=786326&q_fileId=e36a31ba-8557-4ce8-b5ef-52217892487e)
-- [고교학점제 지원센터 - 과목 소개 - 부산광역시교육청](https://home.pen.go.kr/hscredit/cm/cntnts/cntntsView.do?cntntsId=3729&mi=17411)
-""")
-
-# --- 함수 정의 ---
-def display_curriculum(title, description, info_dict):
-    st.subheader(title)
-    st.markdown(description, unsafe_allow_html=True)
-    cols = st.columns(len(info_dict))
-    for i, col in enumerate(cols):
-        area, content = list(info_dict.items())[i]
-        with col:
-            st.markdown(f"### {area}", unsafe_allow_html=True)
-            st.write(content)
+# 퀴즈 함수 유지
 
 def display_quiz(questions):
     st.subheader("💻 정보교과 상식 퀴즈!")
     for i, q in enumerate(questions):
-        with st.container():  # 문제마다 독립된 컨테이너 생성
+        with st.container():
             st.markdown(f"**문제 {i+1}.** {q['question']}")
             user_answer = st.radio(
                 f"문제 {i+1} 정답 선택:", 
@@ -65,111 +23,132 @@ def display_quiz(questions):
 
             st.markdown("---")
 
-def display_aptitude_test(questions):
-    st.subheader("📚 정보교과 적성 간단 테스트")
-    st.markdown("**아래 항목 중 해당되는 것을 체크해보세요!**")
-    checked_count = 0
-    for i, question in enumerate(questions):
-        if f"apt_{i}" not in st.session_state:
-            st.session_state[f"apt_{i}"] = False
-        if st.checkbox(question, key=f"apt_{i}"):
-            checked_count += 1
-    st.markdown(f"체크한 항목 수: **{checked_count}개**")
-    if checked_count >= 6:
-        st.balloons()
-        st.success("정보교과에 대한 흥미와 적성이 아주 높아요!")
-    elif checked_count >= 4:
-        st.info("잠재력과 흥미가 충분해요! 도전해봐요!")
-    elif checked_count >= 2:
-        st.warning("조금 더 관심을 가져보면 좋아요!")
-    else:
-        st.error("아직은 정보교과가 낯설 수 있어요. 조금 더 알아가보아요!")
+# 탭 구조 생성
+st.set_page_config(layout="wide")
 
-# --- 본문 ---
-st.title("💻 미래를 코딩하다! 2022개정 교원과정의 고등학교 정보과 소개")
+menu = ["1. 정보과 소개", "2. 교육과정 변화", "3. 학교 수업 및 FAQ", "4. 진로/적성/의견", "5. 응원"]
+tabs = st.tabs(menu)
 
-st.markdown("""
-안녕, 친구들! 😊<br>
-2학년 과목 선택 고민 많지요?<br>
-과목선택에 걸리는 \"정보\" \"프로그래밍\" \"인공지능 기초\" \"빅데이터 분석\" 이름, 흥시가 나오지요!<br><br>
-정보교과는 평소 사이에서 보는 IT의 공동점이자, 방법입니다!<br>어느 과목을 선택할지, 함께 생각해보어요!
-""", unsafe_allow_html=True)
+# 첫 번째 탭 - 정보과 소개
+with tabs[0]:
+    st.markdown("""
+        <h1 style='text-align: center; color: #4B088A;'>💻 미래를 코딩하다!<br>고등학교 정보과 소개</h1>
+    """, unsafe_allow_html=True)
 
-# --- 커리큘럼 출력 ---
-display_curriculum(
-    "📚 정보(일반선택)과목에서 무엇을 배울까요?",
-    "2022 개정 교원과정의 정보교과는 클기 5가지 영역으로 나누어지고, 컴퓨팅 생각 기본의 문제 해결 방식을 비슷한 통신에서 통합하는 과정입니다.<br>",
-    {
-        "💻 컴퓨팅 시스템": "컴퓨터의 하드웨어/소프트웨어 이해.",
-        "📈 데이터": "데이터 수집과 분석, 정보 도출.",
-        "🧩 알고리즘과 프로그래밍": "문제 해결 알고리즘과 프로그래밍 실습.",
-        "🤖 인공지능": "AI 기본 개념과 활용.",
-        "🌐 디지털 문화": "디지털 사회의 윤리 및 시민성."
-    }
-)
+    st.markdown("""
+    <p style='font-size: 1.1rem;'>
+    정보교과는 단순한 컴퓨터 활용을 넘어서, 미래 사회를 준비하는 중요한 학문입니다.<br>
+    - 인공지능, 빅데이터, 소프트웨어 등 빠르게 변화하는 시대에 필수 역량을 기를 수 있어요.<br>
+    - 논리적 사고력과 문제 해결력을 기를 수 있는 교과입니다.
+    </p>
+    """, unsafe_allow_html=True)
 
-display_curriculum(
-    "📚 인공지능 기초(진로선택) 과목에서 무엇을 배울까요?",
-    "인공지능의 원리, 학습 방식, 사회적 영향, 그리고 프로젝트 기반 탐구 활동을 통해 AI 문제 해결 능력을 배웁니다.<br>",
-    {
-        "💻 인공지능의 이해": "AI의 원리와 탐색 기법.",
-        "📈 인공지능과 학습": "기계학습, 딥러닝 기초.",
-        "🧩 인공지능의 사회적 영향": "윤리, 진로, 사회 변화.",
-        "🌐 인공지능 프로젝트": "SDGs 연계 AI 문제 해결 프로젝트."
-    }
-)
+    st.markdown("""
+    <h3 style='color: #800080;'>📚 정보과목을 선택하면 좋은 점!</h3>
+    <ul style='font-size: 1.05rem;'>
+        <li><b>미래 사회 핵심 역량 강화:</b> AI, 데이터 분석 등 미래 유망 분야의 기초를 다질 수 있어요.</li>
+        <li><b>문제 해결 능력 향상:</b> 복잡한 문제를 논리적으로 분석하고 해결하는 능력을 키워요.</li>
+        <li><b>창의적인 아이디어 구현:</b> 코딩을 통해 나만의 아이디어를 실제로 만들 수 있어요.</li>
+        <li><b>융합 사고력 배양:</b> 과학, 예술, 인문 등 다양한 분야와의 융합이 가능해요.</li>
+        <li><b>진로 선택의 폭 확대:</b> 다양한 분야로 진출할 수 있는 발판이 돼요.</li>
+    </ul>
+    """, unsafe_allow_html=True)
 
-display_curriculum(
-    "📚 데이터 과학(진로선택)과목에서 무엇을 배울까요?",
-    "기계학습을 활용한 데이터 분석 및 해석 능력을 배양하는 과목입니다.<br>",
-    {
-        "💻 데이터 과학의 이해": "데이터 기반 의사 결정 이해.",
-        "📈 데이터 준비와 분석": "데이터 수집, 전처리, 시각화.",
-        "🧩 데이터 모델링과 평가": "모델 설계와 평가 방법.",
-        "🌐 데이터 과학 프로젝트": "프로젝트 기반 문제 해결 실습."
-    }
-)
+# 두 번째 탭 - 교육과정 변화
+with tabs[1]:
+    st.markdown("<h2 style='color:#800080;'>📚 2022 고등학교 정보 과목은 이렇게 바뀝니다.</h2>", unsafe_allow_html=True)
+    st.info("2022 개정 교육과정에서는 다양한 정보 관련 과목이 개설되어 있어요!")
 
-display_curriculum(
-    "📚 소프트웨어와 생활(융합선택)과목에서 무엇을 배울까요?",
-    "소프트웨어를 활용하여 실생활 문제를 해결하고 가치를 창출하는 융합적 사고를 기르는 과목입니다.<br>",
-    {
-        "💻 세상을 변화시키는 소프트웨어": "사회 변화를 이끄는 SW 사례 탐구.",
-        "📈 작품을 창작하는 소프트웨어": "피지컬 컴퓨팅 기반 작품 제작.",
-        "🧩 현상을 분석하는 소프트웨어": "데이터 기반 현상 분석.",
-        "🤖 모의 실험하는 소프트웨어": "시뮬레이션 활용.",
-        "🌐 가치를 창출하는 소프트웨어": "아이디어 기반 SW 프로젝트."
-    }
-)
+    st.markdown("""
+    <div style='line-height: 1.8;'>
+    ✅ <b>일반선택</b>: 정보<br>
+    ✅ <b>진로선택</b>: 인공지능 기초, 데이터 과학, 정보과학<br>
+    ✅ <b>융합선택</b>: 소프트웨어와 생활
+    </div>
+    """, unsafe_allow_html=True)
 
-display_curriculum(
-    "📚 정보과학(진로선택)과목에서 무엇을 배울까요?",
-    "전문적인 알고리즘, 자료구조, 프로그래밍 능력을 기르고, 다양한 문제를 컴퓨팅 관점에서 해결합니다.<br>",
-    {
-        "💻 프로그래밍": "효율적인 프로그래밍 구현 능력.",
-        "📈 자료처리 → 데이터 구조": "데이터 구조화 및 처리.",
-        "🧩 알고리즘": "문제 해결 중심 알고리즘 설계.",
-        "🌐 컴퓨팅 시스템 → 정보과학 프로젝트": "학제 간 프로젝트 수행."
-    }
-)
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.subheader("🖥️ 정보과(일반선택)")
+    st.success("컴퓨팅 시스템, 데이터, 알고리즘과 프로그래밍, 인공지능, 디지털 문화 등 5가지 영역을 배워요.")
 
-# --- 퀴즈 및 적성 테스트 실행 예시 ---
-quiz_questions = [
-    {
-        "question": "컴퓨터에게 일을 시키기 위해 사용하는 약속된 언어는?",
-        "options": ["한국어", "영어", "프로그래밍 언어", "수학 언어"],
-        "answer": "프로그래밍 언어",
-        "explanation": "컴퓨터는 사람이 쓰는 언어를 이해하지 못하므로, 약속된 프로그래밍 언어를 사용해요."
-    }
-]
+    st.subheader("🤖 인공지능 기초(진로선택)")
+    st.success("AI의 원리, 학습 알고리즘, 사회적 영향, 프로젝트 기반 학습 등을 배워요.")
 
-display_quiz(quiz_questions)
+    st.subheader("📊 데이터 과학(진로선택)")
+    st.success("데이터 수집, 전처리, 모델링, 프로젝트를 통해 데이터 분석 역량을 키워요.")
 
-display_aptitude_test([
-    "새로운 기술에 관심이 많다.",
-    "문제를 해결하는 걸 좋아한다.",
-    "데이터를 분석하는 게 흥미롭다.",
-    "컴퓨터나 기계의 원리가 궁금하다.",
-    "프로그래밍을 배워보고 싶다."
-])
+    st.subheader("🔧 소프트웨어와 생활(융합선택)")
+    st.success("소프트웨어로 문제를 해결하는 다양한 실생활 융합 사례를 탐구해요.")
 
+    st.subheader("🧠 정보과학(진로선택)")
+    st.success("자료구조, 알고리즘, 프로그래밍, 정보과학 프로젝트 중심 학습으로 구성돼 있어요.")
+
+# 세 번째 탭 - 우리학교 소개 + FAQ
+with tabs[2]:
+    st.header("🏫 우리 학교 정보교과 수업은?")
+    st.markdown("""
+    <p style='font-size:1.05rem;'>
+    최신 컴퓨터 실습실에서 실습 중심으로 수업을 진행해요.<br>
+    직접 코드를 작성해보고, 해커톤이나 프로젝트 발표회도 경험해요.<br>
+    정보 선생님이 친절하고 수업이 재미있어서 만족도가 높아요!
+    </p>
+    """, unsafe_allow_html=True)
+
+    st.header("👩‍🎓 정보교과 선배들의 이야기")
+    st.info("\"처음엔 어렵지만 재밌게 배울 수 있어요!\" - 2학년 김OO 선배")
+    st.info("\"문과도 할 수 있어요! 사회 현상을 데이터로 분석했어요.\" - 2학년 이OO 선배")
+    st.info("\"정보를 통해 진로 탐색에 도움을 받았어요.\" - 3학년 박OO 선배")
+
+    st.header("❓ 정보교과에 대한 궁금증 (FAQ)")
+    with st.expander("Q1. 코딩을 안 해봤는데 괜찮을까요?"):
+        st.success("물론이죠! 처음 배우는 친구들을 위해 기초부터 차근차근 배워요.")
+    with st.expander("Q2. 수학을 잘 못하는데요?"):
+        st.success("수학보단 논리적 사고가 중요해요. 수업 중 필요한 부분은 충분히 설명해줘요.")
+    with st.expander("Q3. 진로에 도움이 되나요?"):
+        st.success("IT뿐 아니라 다양한 분야에서 정보 활용 역량은 강점이 될 수 있어요.")
+    with st.expander("Q4. 수업이 지루하지 않나요?"):
+        st.success("실습과 프로젝트 위주 수업이라 재미있어요!")
+
+# 네 번째 탭 - 진로 + 퀴즈 + 적성 + 의견
+with tabs[3]:
+    st.header("🎯 정보교과와 연결된 진로/학과")
+    st.markdown("""
+    💡 <b>컴퓨터/소프트웨어</b>: 개발자, 보안 전문가 등<br>
+    💡 <b>데이터/AI</b>: 데이터 과학자, AI 연구자 등<br>
+    💡 <b>융합기술</b>: 로봇공학, 스마트팜, 디지털 헬스케어 등
+    """, unsafe_allow_html=True)
+
+    quiz_questions = [
+        {
+            "question": "컴퓨터에게 일을 시키기 위해 사용하는 약속된 언어는?",
+            "options": ["한국어", "영어", "프로그래밍 언어", "수학 언어"],
+            "answer": "프로그래밍 언어",
+            "explanation": "컴퓨터는 사람이 쓰는 언어를 이해하지 못하므로, 약속된 프로그래밍 언어를 사용해요."
+        },
+        {
+            "question": "정보교과의 5가지 영역이 아닌 것은?",
+            "options": ["컴퓨팅 시스템", "데이터", "알고리즘과 프로그래밍", "인공지능", "디자인"],
+            "answer": "디자인",
+            "explanation": "정보교과의 주요 영역은 컴퓨팅 시스템, 데이터, 알고리즘과 프로그래밍, 인공지능, 디지털 문화예요."
+        }
+    ]
+    display_quiz(quiz_questions)
+
+    st.subheader("💬 홍보물에 대한 의견 남기기")
+    user_comment = st.text_area("💡 여기에 자유롭게 의견을 입력해 주세요:", height=100)
+    if st.button("✉️ 의견 제출"):
+        if user_comment:
+            st.success("의견이 제출되었습니다! 감사합니다!")
+        else:
+            st.warning("의견을 입력해주세요!")
+
+# 다섯 번째 탭 - 응원 메시지
+with tabs[4]:
+    st.markdown("""
+        <h2 style='color: #4B088A;'>📣 여러분의 빛나는 미래를 응원해요! ❤️</h2>
+        <p style='font-size:1.1rem;'>
+        정보교과는 여러분의 잠재력을 깨우고 미래를 설계하는 데 훌륭한 도구입니다.<br>
+        망설이지 말고 도전해보세요!<br>
+        여러분의 멋진 도전을 항상 응원합니다! 💪<br>
+        </p>
+    """, unsafe_allow_html=True)
