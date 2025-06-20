@@ -40,6 +40,51 @@ def display_quiz(questions):
 
             st.markdown("---")
 
+# 적성 테스트 함수 추가
+def display_aptitude_test():
+    st.subheader("🧠 정보교과 적성 간단 테스트")
+    st.write("아래 질문들을 읽고 나에게 해당하는 항목에 체크해 보세요! 정보교과가 너에게 잘 맞을지 살짝 엿볼 수 있을 거예요!")
+
+    questions = [
+        "새로운 기술이나 기기에 대해 배우는 것을 좋아한다.",
+        "문제가 생겼을 때 원인을 분석하고 해결하는 과정을 즐긴다.",
+        "복잡한 것을 단순하게 만들거나 순서대로 정리하는 것을 좋아한다.",
+        "데이터나 숫자를 보고 의미를 파악하는 것에 흥미를 느낀다.",
+        "나만의 아이디어를 실제로 만들어보고 싶다는 생각을 해본 적이 있다.",
+        "컴퓨터나 스마트폰을 사용하는 것 외에 내부 작동 방식이 궁금하다.",
+        "미래 사회의 변화나 인공지능 기술 발전에 관심이 많다.",
+        "친구들과 함께 머리를 맞대고 문제를 해결하는 것을 좋아한다."
+    ]
+
+    st.markdown("---")
+    st.markdown("**나에게 해당하는 항목에 체크해주세요!**")
+    st.markdown("---")
+
+    count = 0
+    for i, q in enumerate(questions):
+        if st.checkbox(q, key=f"apt_{i}"):
+            count += 1
+
+    st.markdown("---")
+    st.subheader("📊 테스트 결과")
+    st.write(f"체크한 항목 수: **{count}개**")
+
+    if count >= 6:
+        st.balloons()
+        st.success("🎉 정보교과에 대한 흥미와 적성이 아주 높은 편이에요! 미래 IT 전문가의 길이 열려 있어요!")
+    elif count >= 4:
+        st.info("😊 정보교과에 대한 관심과 가능성이 충분하네요! 도전해볼만 해요!")
+    elif count >= 2:
+        st.warning("🙂 아직 정보교과가 낯설 수 있지만 흥미 요소가 있어요! 한 번 경험해보세요.")
+    else:
+        st.error("😅 아직 정보교과에 대해 잘 모르거나 흥미가 적을 수 있어요. 하지만 열려 있는 마음으로 한 번쯤 배워보는 것도 좋아요!")
+
+
+
+
+
+
+
 # 탭 구조 생성
 st.set_page_config(layout="wide")
 
