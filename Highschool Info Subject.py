@@ -32,17 +32,16 @@ tabs = st.tabs(menu)
 # 첫 번째 탭 - 정보과 소개
 with tabs[0]:
     st.markdown("""
-        <h1 style='text-align: center; color: #4B088A;'>💻 미래를 코딩하다!<br>고등학교 정보과 소개</h1>
+        <h1 style='text-align: center; color: #4B088A;'>💻 미래를 코딩하다! 2022 개정 교육과정 고등학교 정보과 소개</h1>
     """, unsafe_allow_html=True)
 
     st.markdown("""
     <p style='font-size: 1.1rem;'>
-    정보교과는 단순한 컴퓨터 활용을 넘어서, 미래 사회를 준비하는 중요한 학문입니다.<br>
-    - 인공지능, 빅데이터, 소프트웨어 등 빠르게 변화하는 시대에 필수 역량을 기를 수 있어요.<br>
-    - 논리적 사고력과 문제 해결력을 기를 수 있는 교과입니다.
-    </p>
+    -정보교과는 <br> 단순히 컴퓨터를 배우는 걸 넘어서, <br> 우리가 살아갈 미래 사회에서 꼭 필요한 <span style="color: red;"> 
+    생각하는 힘과 문제 해결 능력을 키워</span>주는 아주 중요한 과목입니다!<br> 왜 정보교과를 선택해야 하는지,<br> 같이 한번 알아볼까요?
     """, unsafe_allow_html=True)
-
+   
+   
     st.markdown("""
     <h3 style='color: #800080;'>📚 정보과목을 선택하면 좋은 점!</h3>
     <ul style='font-size: 1.05rem;'>
