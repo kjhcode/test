@@ -37,7 +37,7 @@ with tabs[0]:
 
     st.markdown("""
     <p style='font-size: 1.1rem;'>
-    -정보교과는 <br> 단순히 컴퓨터를 배우는 걸 넘어서, <br> 우리가 살아갈 미래 사회에서 꼭 필요한 <span style="color: red;"> 
+    정보교과는 <br> 단순히 컴퓨터를 배우는 걸 넘어서, <br> 우리가 살아갈 미래 사회에서 꼭 필요한 <span style="color: red;"> 
     생각하는 힘과 문제 해결 능력을 키워</span>주는 아주 중요한 과목입니다!<br> 왜 정보교과를 선택해야 하는지,<br> 같이 한번 알아볼까요?
     """, unsafe_allow_html=True)
    
