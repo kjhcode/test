@@ -126,8 +126,13 @@ subject_data = [
 tabs = st.tabs(["정보 소개", "퀴즈", "적성 테스트", "FAQ"])
 
 with tabs[0]:
-    st.title("💻 2022 개정 정보과 안내")
+    st.title("💻 미래를 코딩하다! 2022개정 교육과정의 고등학교 정보과 소개"")
     st.image("https://images.unsplash.com/photo-1581092334654-3c1c9482466f", caption="AI실", use_container_width=True)
+    st.markdown("""
+안녕, 친구들! 😊 <br>
+2학년 과목 선택 때문에 고민이 많을 텐데요, <br>
+여러분들이 수강을 희망한 과목을 살펴보니 <span style="color: red;">**정보**</span>/<span style="color: blue;">**프로그래밍**</span>/<span style="color: green;">**인공지능 기초**</span>/<span style="color: gold;">**빅데이터 분석**</span> 과목이더라구요!  <br> 
+이 결과를 확인하고 우리 학생들이 인공지능 시대에 맞는 교과목을 알고 있다는 생각을 했습니다. <br> <br>
     for subject in subject_data:
         render_subject_section(subject["title"], subject["desc"], subject["areas"])
 
@@ -151,4 +156,9 @@ with tabs[3]:
 
 st.markdown("---")
 st.header("📚 여러분의 빛나는 미래를 응원해요!")
-st.markdown("정보교과는 여러분의 꿈을 현실로 만들어 줄 멋진 시작입니다. 파이팅! 😊")
+t.markdown("""
+정보교과는  <br> 
+여러분의 잠재력을 깨우고 미래를 설계하는 데 훌륭한 도구가 될 것입니다. <br>
+망설이지 말고 정보교과의 문을 두드려보세요! <br>
+여러분의 멋진 도전을 응원하겠습니다! 파이팅! 😊
+""", unsafe_allow_html=True)
