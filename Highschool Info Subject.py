@@ -224,6 +224,7 @@ with tabs[3]:
             st.success("의견이 제출되었습니다! 감사합니다!")
         else:
             st.warning("의견을 입력해주세요!")
+    display_aptitude_test()
 
 # 다섯 번째 탭 - 응원 메시지
 with tabs[4]:
