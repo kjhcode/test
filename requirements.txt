@@ -3,3 +3,6 @@ Pillow
 streamlit
 pandas
 plotly
+streamlit
+pandas
+plotly
