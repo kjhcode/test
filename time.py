@@ -16,10 +16,7 @@ def init_session_state():
         "reward_categories": {},
         "selected_reward": None,
         "diary_entries": {},
-        "timer_running": False, # 이 값은 사실 안 쓰이므로 제거해도 됨
         "start_time": None,
-        "paused": False, # 이 값은 현재 코드에서 안 쓰이므로 제거해도 됨
-        "elapsed": 0, # 이 값은 현재 코드에서 안 쓰이므로 제거해도 됨
         "running": False, # 타이머 실행 상태
     }
     for key, val in defaults.items():
@@ -38,13 +35,17 @@ init_session_state()
 st.title("✅ 체크리스트 + ⏱ 타이머 + 🎁 보상 + 📝 일기")
 st.header("📋 오늘의 할 일")
 
-# 할 일 입력 필드
-task_input = st.text_input("할 일 입력", key="input_task")
-if st.button("➕ 추가"):
-    if task_input.strip(): # 빈 문자열이 아닐 경우에만 추가
-        st.session_state.checklist.append({"text": task_input.strip(), "checked": False})
-        st.success("할 일이 추가되었습니다! ✨")
-        st.session_state.input_task = "" # 입력 필드 초기화 (사용자 경험 개선)
+# 할 일 입력 필드를 st.form 안에 넣어서 제출 시 자동으로 초기화되게 변경
+with st.form("task_input_form", clear_on_submit=True): # clear_on_submit=True 중요!
+    task_input = st.text_input("할 일 입력", key="form_task_input") # key 변경 (충돌 방지)
+    add_button = st.form_submit_button("➕ 추가")
+
+    if add_button: # 폼 제출 버튼 클릭 시
+        if task_input.strip(): # 빈 문자열이 아닐 경우에만 추가
+            st.session_state.checklist.append({"text": task_input.strip(), "checked": False})
+            st.success("할 일이 추가되었습니다! ✨")
+        else:
+            st.warning("할 일을 입력해주세요!") # 입력 내용이 없으면 경고 메시지
 
 # 할 일 목록을 고유하게 식별하기 위한 함수
 def get_safe_key(text, index):
@@ -73,10 +74,10 @@ else:
 st.header("🎁 카테고리별 보상 등록")
 
 with st.form("reward_form_section"):
-    category = st.text_input("카테고리 입력", placeholder="예: 맛있는 간식, 힐링 타임")
-    reward = st.text_input("보상 내용", placeholder="예: 내가 좋아하는 초콜릿 먹기, 따뜻한 차 한 잔")
-    submit = st.form_submit_button("추가")
-    if submit and category.strip() and reward.strip():
+    category = st.text_input("카테고리 입력", placeholder="예: 맛있는 간식, 힐링 타임", key="reward_category_input")
+    reward = st.text_input("보상 내용", placeholder="예: 내가 좋아하는 초콜릿 먹기, 따뜻한 차 한 잔", key="reward_content_input")
+    submit_reward = st.form_submit_button("추가") # 버튼 이름 변경 (다른 폼과 구분)
+    if submit_reward and category.strip() and reward.strip():
         # 딕셔너리에 카테고리가 없으면 새로 만들고 보상 추가
         st.session_state.reward_categories.setdefault(category, []).append(reward)
         st.success("새로운 보상이 등록되었어! 기대된다! 🥰")
@@ -121,7 +122,7 @@ st.markdown("규칙적인 휴식으로 집중력을 쑥쑥 높여봐! 🍅")
 
 # 타이머 시작 버튼
 if st.button("▶️ 타이머 시작", key="start_timer_btn"):
-    # 이미 타이머가 실행 중이거나 정지 상태가 아니라면
+    # 이미 타이머가 실행 중이 아니라면 시작
     if not st.session_state.running:
         st.session_state.start_time = time.time()
         st.session_state.running = True
@@ -129,7 +130,7 @@ if st.button("▶️ 타이머 시작", key="start_timer_btn"):
 # 타이머 중단 버튼
 if st.button("⏹️ 타이머 중단", key="stop_timer_btn"):
     st.session_state.running = False
-    st.session_state.start_time = None # 시작 시간 초기화 (선택 사항)
+    st.session_state.start_time = None # 시작 시간 초기화 (타이머 중단 시)
 
 total_seconds = 25 * 60 # 총 25분 (초 단위)
 
@@ -142,7 +143,7 @@ if st.session_state.running:
     if remaining <= 0:
         st.success("⏰ 25분 집중 시간 완료! 수고했어! 이제 푹 쉬어봐! 🥳")
         st.session_state.running = False # 타이머 중단
-        st.session_state.start_time = None # 시작 시간 초기화 (선택 사항)
+        st.session_state.start_time = None # 시작 시간 초기화
     else:
         mins, secs = divmod(remaining, 60) # 남은 시간을 분과 초로 변환
         st.subheader(f"남은 시간: **{mins:02d}:{secs:02d}** 틱톡 ⏰")
