@@ -49,4 +49,4 @@ if st.button("새 게임 시작하기"):
     st.rerun() # 게임 초기화 후 페이지 새로고침
 
 st.markdown("---")
-st.caption("컴퓨터의 비밀을 파헤쳐 봐! 
+st.caption("컴퓨터의 비밀을 파헤쳐 봐! ")
