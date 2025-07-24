@@ -64,4 +64,52 @@ st.markdown("---") # 구분선
 # 사이드바에 현재 저장된 북마크 목록을 보여줄 거야.
 st.sidebar.header("📝 내 북마크 목록")
 if st.session_state.bookmarks: # 북마크가 있을 때만 표시
-    for i, 
+    for i, bookmark in enumerate(st.session_state.bookmarks):
+        st.sidebar.write(f"**{i+1}. {bookmark['name']}**")
+        st.sidebar.write(f"   위도: {bookmark['latitude']:.4f}, 경도: {bookmark['longitude']:.4f}")
+        if bookmark['description']: # 설명이 있으면 보여줘
+            st.sidebar.caption(f"   설명: {bookmark['description']}")
+        st.sidebar.markdown("---") # 각 북마크 사이에 구분선
+
+    # 모든 북마크를 한 번에 지우는 버튼
+    if st.sidebar.button("🧹 모든 북마크 지우기"):
+        st.session_state.bookmarks = []
+        st.experimental_rerun() # 앱을 새로고침해서 변경사항을 바로 반영!
+else:
+    st.sidebar.info("아직 북마크가 없어요. 위에 있는 '새로운 북마크 추가'에서 장소를 추가해보세요! 🚀")
+
+# --- 3. 내 북마크 지도 표시 섹션 ---
+st.header("🌍 내 즐겨찾기 지도")
+
+if st.session_state.bookmarks: # 북마크가 있을 때만 지도 생성
+    # 지도의 초기 중심점 설정: 첫 번째 북마크의 위치를 중심으로 잡아줘!
+    first_bookmark = st.session_state.bookmarks[0]
+    # 이제는 광주광역시교육연구정보원을 시작점으로 설정하여 앱을 열면 바로 해당 위치를 볼 수 있도록 해보자!
+    m = folium.Map(location=[first_bookmark['latitude'], first_bookmark['longitude']], zoom_start=12) # 좀 더 확대!
+
+    # 각 북마크를 지도에 마커로 추가할 거야!
+    for bookmark in st.session_state.bookmarks:
+        # 마커를 클릭했을 때 나타날 팝업 내용을 HTML로 예쁘게 꾸밀 수 있어.
+        popup_html = f"""
+        <b>{bookmark['name']}</b><br>
+        위도: {bookmark['latitude']:.4f}<br>
+        경도: {bookmark['longitude']:.4f}<br>
+        {bookmark['description']}
+        """
+        marker_color = "blue" if bookmark["name"] == "광주광역시교육연구정보원" else "red" # 교육연구정보원만 파란색 마커!
+        
+        folium.Marker(
+            location=[bookmark['latitude'], bookmark['longitude']], # 마커 위치
+            popup=folium.Popup(popup_html, max_width=300), # 팝업 내용과 최대 너비
+            tooltip=bookmark['name'], # 마우스를 올렸을 때 나타나는 텍스트
+            icon=folium.Icon(color=marker_color, icon="info-sign", prefix="glyphicon") # 아이콘 색상, 모양, 스타일을 지정 (Font Awesome 사용)
+        ).add_to(m) # 지도에 마커를 추가!
+    
+    # st_folium 함수를 사용해서 Folium 지도를 Streamlit 앱에 보여줘!
+    # width와 height를 조절해서 지도 크기를 바꿀 수 있어.
+    st_folium(m, width=800, height=500)
+else:
+    st.info("북마크를 추가하면 지도에 표시될 거예요. 빨리 나만의 지도를 만들어 봐! 🤗")
+
+st.markdown("---")
+st.caption("✨ Pygame은 복잡한 게임처럼 실시간 반응이 중요한 앱에, Streamlit은 이런 웹 대시보드나 간단한 앱 만들기에 아주 유용하답니다!")
