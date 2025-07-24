@@ -1,3 +1,10 @@
+folium
+streamlit-folium
+
+
+
+
+
 streamlit
 Pillow
 streamlit
