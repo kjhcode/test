@@ -14,8 +14,8 @@ def init_session_state():
         st.session_state.bookmarks = [
             # 광주광역시교육연구정보원 북마크 추가
             {"name": "광주광역시교육연구정보원", 
-             "latitude": 35.1559, # 대략적인 위도
-             "longitude": 126.8526, # 대략적인 경도
+             "latitude": 35.177595, # 대략적인 위도 
+             "longitude": 126.846068, # 대략적인 경도
              "description": "공공학습관리시스템(LMS) 운영, AI 교육원 설립 추진 등 미래 교육을 선도하는 기관이에요! 🚀"},
             {"name": "남산타워", "latitude": 37.5512, "longitude": 126.9882, "description": "서울의 랜드마크! 경치 최고예요! 🗼"},
             {"name": "경복궁", "latitude": 37.5796, "longitude": 126.9770, "description": "조선 시대 왕궁, 한복 입고 구경하면 더 좋아요. 👑"},
